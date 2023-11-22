@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { IGood } from "../../models/models"
+import { IGood, ServerResponse } from "../../models/models"
 
 export const shopApi = createApi({
     reducerPath: "shopApi",
@@ -19,7 +19,7 @@ export const shopApi = createApi({
                 url: `categories/${id}/products`,
             }),
         }),
-        getGoodInfo: builder.query<IGood[], number>({
+        getGoodInfo: builder.query<ServerResponse<IGood>, number>({
             query: (id: number) => ({
                 url: `products/${id}`
             }),
